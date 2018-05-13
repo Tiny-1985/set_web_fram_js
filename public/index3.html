@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model='search' />
+    <ul v-for="item in searchData ">
+        <li>{{item.name}},价格:￥{{item.price}}</li>
+    </ul>
+</div>
+<script src="./rjs/vue2.0.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            search: '',
+            products: [{
+                name: '苹果',
+                price: 25,
+                category: "水果"
+            }, {
+                name: '香蕉',
+                price: 15,
+                category: "水果"
+            }, {
+                name: '雪梨',
+                price: 65,
+                category: "水果"
+            }, {
+                name: '宝马',
+                price: 2500,
+                category: "汽车"
+            }, {
+                name: '奔驰',
+                price: 10025,
+                category: "汽车"
+            }, {
+                name: '柑橘',
+                price: 15,
+                category: "水果"
+            }, {
+                name: '奥迪',
+                price: 25,
+                category: "汽车"
+            }, {
+                name: '火龙果',
+                price: 25,
+                category: "工具"
+            }]
+        },
+        computed: {
+            searchData: function() {
+                var search = this.search;
+                if (search) {
+                    let aaa = this.products.filter(function(product) {
+                        console.log("p:",product);
+                        return Object.keys(product).some(function(key) {
+                            console.log("k:",key);
+                            return String(product[key]).toLowerCase().indexOf(search) > -1
+                        })
+                    });
+                    console.log(aaa);
+                    return aaa;
+                }
+
+                return this.products;
+            }
+        }
+    })
+</script>
+</body>
+</html>

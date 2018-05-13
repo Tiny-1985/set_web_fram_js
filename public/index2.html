@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<style>
+		#app3 {
+			margin: 100px auto;
+			width: 300px;
+			height: 300px;
+			background-color: red;
+			position: relative;
+		}
+		.app4 {
+			width: 100px;
+			height: 100px;
+			background-color: #FFFFFF;
+			position: absolute;
+			top: 50px;
+		}
+		.dom {
+			position: relative;
+			margin: 100px auto;
+			background-color: #000000;
+		}
+		.app2 {
+			clear:both;
+			margin-top: 5%;
+			position: absolute; 			
+			top: 15%;
+			left: 25%;
+			right: 25%;
+			/*display: none;*/
+			animation: da 0.1s;
+		}
+		.app {
+			/*position: relative;*/
+			background-color: red;
+			animation: animationUpDown 1s ease-out;
+			top: 0;
+    		left: 0;		
+			width: 50%;
+			
+		}
+
+		.dragtop {
+			    top: -3px;
+			    left: 0;
+			    height: 10px;
+			    width: 100%;
+		}
+
+		.dragleft {
+		    top: 0;
+		    left: 0;
+		    width: 10px;
+		    height: 30px;
+		}
+
+		.dragright {
+		    right: 0;
+		    top: 0;
+		    width: 10px;
+		    height: 30px;
+		}
+
+		.dtrigger {
+			position: absolute; 
+		    z-index: 99999;
+		    cursor: move;
+		}
+
+
+		.frist {
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+			position: relative;
+			background-color: red;
+		}
+
+		.two {
+			position: absolute;
+			top: 50px;
+			width: 100px;
+			height: 100px;
+			left: 10px;
+			background-color: green;
+			/*display: none;*/
+			animation: animationUpDown 0.5s ease-out;
+		}
+
+		@keyframes animationUpDown {
+			0% {transform: translateY(-100%);background-color: green;}
+			50% {transform: translateY(-50%);background-color: blue;}
+			80% {transform: translateY(-10%);background-color: violet;}
+			100% {transform: translateY(50px);background-color: green;}
+		}
+
+		@keyframes da {
+			0% {overflow: hidden;}
+			100% {display: block; overflow: visible;}
+		}
+
+		@keyframes tow {
+			0% {
+				transform: translateY(-200%);
+				opacity:0;
+    			visibility: hidden;
+			}
+			50% {
+				opacity:0;
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		.dom1 {
+			font-size: 32px;
+			animation: tow 1s ease-out both;
+		}
+	</style>
+	<link rel="stylesheet" href="./css/animate.css">
+	
+</head>
+<body>
+
+
+	<!-- <div class="frist">
+		<div class="two"></div>
+	</div> -->
+	<!-- <div class="frist">
+		<div class="dom1">我要动画</div>
+	</div>
+	
+	
+	<script>
+		window.onload = function() {
+			/*setTimeout(()=>{
+				document.getElementsByClassName("two")[0].style.animation = "animationUpDown 3s ease-out";
+			},3000)*/
+			
+		}
+	</script> -->
+
+	<div id="app">
+		<input type="text" v-model="a">
+		<input type="text" id="cc">
+		<div v-text="b"></div>
+		<ul v-for="f of c">
+			<li v-text="f.a"></li>
+			<li v-text="f.b"></li>
+		<ul>
+	</div>
+
+	<!-- <div class="dom">
+		<div class="app2">
+			<div class="app">
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+				<div>aaaaaa</div>
+			</div>
+		</div>
+	</div> -->
+	
+
+	<!-- <div id="app3">
+		<div class="app4">
+	
+		</div>
+	</div>
+	 -->
+	<!-- <script>
+		let aaa = [{
+			a:"1",
+			b:2
+		},{
+			a:2,
+			b:3
+		}]
+	
+		let bbb = [
+			["aaa","bbb"]
+		]
+	
+		aaa.forEach((i,v)=> {
+			console.log(i,v);
+		});
+	
+		console.log(bbb[4])
+		console.log(aaa.length)
+	
+		let jc = {
+			b: 1
+		}
+	
+		console.log(typeof jc.c === "undefined");
+		
+		
+	
+	</script> -->
+	<script src="rjs/vue2.0.min.js"></script>
+	<script>
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				"a": 30000,
+				"b": 30,
+				"c": [
+					{"a":1,"b":2},
+					{"a":2,"b":3},
+					{"a":4,"b":5}
+				]
+			}
+		})
+		let ddd = 2
+		document.getElementById("cc").value = ddd;
+		
+		setInterval(()=>{
+			vm.a = Math.random() * 100;
+			vm.b = Math.random() * 200;
+			/*vm.c = [
+				{
+					"a": Math.random() * 10,
+					"b": 0 
+				},
+				{"a":2,"b":3},
+				{"a":4,"b":5}
+			]*/
+			vm.c[0].a = Math.random() * 10;
+			ddd = Math.random();
+			ddd.addEventListener("change",function(){
+				document.getElementById("cc").value = bbb;
+				console.log("b",bbb);
+			})
+			console.log(ddd);
+			console.log(vm.a);
+			console.log(vm.b);
+			console.log(vm.c);
+	
+		},3000);
+	
+		/*let abc = {
+			a: 1,
+			b: 2,
+			c: 3
+		}
+	
+		let ggg = new Proxy(abc,{
+			get(traget,key,receiver) {
+				console.log("get:",traget,key,receiver);
+				return Reflect.get(traget,key,receiver);
+			},
+			set(traget,key,val,receiver) {
+				console.log("set:",traget,key,val,receiver);
+	
+				return Reflect.set(traget,key,traget[key],receiver);
+			},
+			deleteProperty(traget,propKey) {
+				console.log("del:",traget,propKey);
+				throw new Error("你淘气了不是。。。👊");
+				return true;
+			}
+		});
+	
+		console.log(ggg.a);
+		ggg.b = 4;
+		delete ggg["c"];
+		console.log(ggg);*/
+	
+	
+	</script>
+
+
+</body>
+</html>

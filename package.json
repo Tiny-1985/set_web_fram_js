@@ -1,0 +1,16 @@
+{
+  "name": "set_dcjc_web_frame",
+  "version": "1.0.0",
+  "description": "金蝉前台框架--搭建html,不用页面内部代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2"
+  }
+}

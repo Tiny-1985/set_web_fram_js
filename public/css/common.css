@@ -1,0 +1,20 @@
+/*html公共css样式*/
+
+
+/*边距*/
+.mar_auto {
+	margin: 0px auto;
+}
+
+.mar_lef_10 {
+	margin-left: 10px;
+}
+
+.mar_rig_10 {
+	margin-right: 10px;
+}
+
+/*宽*/
+.width_90 {
+	width: 90px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>regExp</title>
+</head>
+<body>
+
+
+	<div id="app">
+		<input type="text" name="input_name">
+	</div>
+	
+
+
+
+
+	<script>
+		let app = document.getElementById("app");
+		console.log(app.getElementsByTagName("input"))
+
+		const str = `\ndklfajdofjnaklgvjsdkljvdklsnvkajfioefnadviopldskfdfiejwfjdfiejdkfjiendkvdivnkdhfuiehgui9eq[ejdfjsdpfadj4qikfiodhjf9043u8203i3r8fjdmdjf90i4fjiofjioerngjohrfei0ru4fiejfierujfi4jrf34fejfjer ofpferfjirjfprfer[rerr-4ngnfuigha789ur491343434r4r4
+			r___===-=-=++++----fnfjendnc---ee=e
+				\n
+			fef333412123!!1@@#$$%%^^fdf e123`;
+		const nub = '12.34';
+		const temp = '\r';
+		console.log("验证有空格是否数值为空：",/\S/.test("    "));//验证不含有空格的其余变量，有则ture，否者为false
+		console.log("验证数值是否包含空格：",/\s/.test("1234"));//是否包含空格，有空格就是ture,否者为false
+		console.log("验证数值是否包含数字：",/\d/.test("dkiekadfg111"));//是否包含数字，包含为ture，否则为false
+		console.log("验证数值是否包含字符：",/\D/.test("123lllllaaaaa"));//是否包含字符，包含为ture，否则为false
+		console.log("验证变量内是否包含字母下划线数字：",/\w/.test("我"));
+		console.log("验证变量内是否包含！字母下划线数字：",/\W/.test("_我"));
+		console.log("验证变量是否为数字：",/^\d+$/.test(nub));
+		console.log("验证变量第一个是否为数字：",/^\d/.test("2deed3"));
+		console.log("验证变量最后一个是否为数字：",/\d+$/.test("5deed6"));
+		console.log(/\b/.test(" "));
+
+		console.log("点的验证：",/./.test(temp));
+
+		const nub1 = "100 99";
+		console.log(nub1.match(/(100) (99)+?/));
+		console.log(nub1.replace(/(100)(99)/, "$1 $2"));
+
+		const stri = "name jimmy tiny";
+
+		console.log(stri.match(/(\w+)/));
+		console.log(stri.replace(/(\w+)/,""));
+		console.log(/^\d+$/g.test("1.11"));
+
+	</script>
+</body>
+</html>
